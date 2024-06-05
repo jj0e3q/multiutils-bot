@@ -15,7 +15,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from motor.core import AgnosticDatabase as MDB
 
 from keyboards.builders import inline_builder
-from callbacks import weather
+from callbacks import weather, task
 
 from pymongo.errors import DuplicateKeyError
 
@@ -42,7 +42,9 @@ async def start(message: Message | CallbackQuery, db: MDB) -> None:
     pattern = dict(
         text=f"Здравствуй, {user['full_name']}\n\nЯ твой бот помощник!",
         reply_markup=inline_builder(
-            'Погода🍃', 'weather', 1
+            ['Погода🍃', 'Добавить задачу📄'],
+            ['weather', 'task'],
+            1
         )
     )
     
@@ -66,7 +68,8 @@ async def main() -> None:
 
     dp.include_routers(
         router,
-        weather.router
+        weather.router,
+        task.router
     )
 
     cluster = AsyncIOMotorClient(host="localhost", port=27017)
