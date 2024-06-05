@@ -7,9 +7,8 @@ from contextlib import suppress
 
 from aiogram import Router, Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery
-from aiogram.filters import CommandStart, Command
+from aiogram.filters import CommandStart
 from aiogram.enums import ParseMode
-from aiogram.utils.markdown import hcode
 from aiogram.client.default import DefaultBotProperties
 
 from motor.motor_asyncio import AsyncIOMotorClient
