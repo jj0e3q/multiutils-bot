@@ -1,11 +1,8 @@
-import asyncio
 import aiohttp
-import json
 
 from aiogram import Router, F
 from aiogram.utils.markdown import hcode
 from aiogram.types import Message, CallbackQuery
-from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
 from keyboards.builders import inline_builder

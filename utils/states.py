@@ -6,3 +6,4 @@ class TakeCity(StatesGroup):
 class Task(StatesGroup):
     task_name = State()
     time_task = State()
+    manual_time_task = State()
